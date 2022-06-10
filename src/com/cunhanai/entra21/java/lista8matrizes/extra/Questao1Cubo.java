@@ -47,6 +47,32 @@ public class Questao1Cubo {
 			}
 			System.out.println();
 		}
+		System.out.println();
+		
+		// IMPRIME OS VALORES DE cuboB
+		System.out.println("VALORES DE CUBO B:");
+		for (int[][] linha : cuboB) {
+			for (int[] coluna : linha) {
+				for (int profundidade : coluna) {
+					System.out.print(profundidade + "\t");
+				}
+				System.out.print("\t\t\t");
+			}
+			System.out.println();
+		}
+		System.out.println();
+		
+		// IMPRIME OS VALORES DE cuboA
+		System.out.println("VALORES DE CUBO C:");
+		for (int[][] linha : cuboC) {
+			for (int[] coluna : linha) {
+				for (int profundidade : coluna) {
+					System.out.print(profundidade + "\t");
+				}
+				System.out.print("\t\t\t");
+			}
+			System.out.println();
+		}
 	}
 
 }
