@@ -17,12 +17,12 @@ import java.util.Random;
 public class Questao3MaxMinLinha5e7 {
 
 	public static void main(String[] args) {
-		Random numeroAleato = new Random();
-		int[][] matrizAleato = new int[10][10];
-		int maxLinha5 = Integer.MIN_VALUE;
-		int minLinha5 = Integer.MAX_VALUE;
-		int maxLinha7 = Integer.MIN_VALUE;
-		int minLinha7 = Integer.MAX_VALUE;
+		Random numeroAleato = new Random(); // inicializa a biblioteca Random
+		int[][] matrizAleato = new int[10][10]; // matriz para preenchimento com números aleatórios
+		int maxLinha5 = Integer.MIN_VALUE; // maior valor da linha 5
+		int minLinha5 = Integer.MAX_VALUE; // menor valor da linha 5
+		int maxLinha7 = Integer.MIN_VALUE; // maior valor da linha 7
+		int minLinha7 = Integer.MAX_VALUE; // menor valor da linha 7
 		int aux; // receberá o número aleatório para facilitar a verificação
 		
 		// GERA UMA MATRIZ COM VALORES ALEATÓRIOS

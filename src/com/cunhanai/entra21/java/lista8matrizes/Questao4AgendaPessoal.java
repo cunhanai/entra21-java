@@ -19,9 +19,10 @@ import java.util.Scanner;
 public class Questao4AgendaPessoal {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		String[][] agenda = new String[30][24];
-		int dia, hora, opcao;
+		Scanner sc = new Scanner(System.in); // matriz que armazena os compromissos
+		String[][] agenda = new String[30][24]; // matriz que armazena os compromissos
+		int opcao; // opção digitada pelo usuário
+		int dia, hora; // data e hora informada pelo usuário para registro dos compromossos
 		
 		// CRIA O LOOP PRINCIPAL
 		loop1:
@@ -48,7 +49,7 @@ public class Questao4AgendaPessoal {
 					System.out.print("Dia do compromisso: ");
 					dia = sc.nextInt();
 					
-					// VERIFICA SE O DIA É VÁLIDO OU NÃO
+					// VERIFICA SE O DIA É VÁLIDO
 					if (dia > 30 || dia < 1) {
 						System.out.println("Dia inválido! Digite novamente.");
 						System.out.println();
@@ -75,7 +76,7 @@ public class Questao4AgendaPessoal {
 				}
 				System.out.println();
 				
-				// VERIFICA SE NÃO HÁ NENHUM COMPROMISSO AGENDADO PARA AQUELE DIA E HORÁRIO
+				// VERIFICA SE NÃO HÁ NENHUM COMPROMISSO AGENDADO PARA A DATA E HORA ESPECIFICADA
 				if (agenda[dia-1][hora] == null) {
 					// SE FOR VÁLIDO, PEDE O COMPROMISSO E O ADICIONA NA MATRIZ
 					System.out.println("Digite o compromisso:");

@@ -17,9 +17,9 @@ import java.util.Scanner;
 public class Questao2NumParImpar {
 
 	public static void main(String[] args) {
-		Scanner sc = new Scanner(System.in);
-		int[][] matrizM = new int[3][3];
-		int par = 0, impar = 0;
+		Scanner sc = new Scanner(System.in); // inicializa a biblioteca Scanner
+		int[][] matrizM = new int[3][3]; // matriz para preenchimento via teclado
+		int par = 0, impar = 0; // conta a quantidade de números pares e ímpares
 		
 		// CRIA UMA MATRIZ 3x3 COM VALORES INFORMADOS VIA TECLADO 
 		for (int i = 0; i < matrizM.length; i++) {
@@ -27,13 +27,11 @@ public class Questao2NumParImpar {
 				System.out.printf("Valor da linha %d e coluna %d: ", i, j);
 				matrizM[i][j] = sc.nextInt();
 				
-				// VERIFICA SE O NÚMERO É PAR OU ÍMPAR
+				// VERIFICA SE O NÚMERO É PAR OU ÍMPAR E CONTA-OS
 				if (matrizM[i][j] % 2 == 0) {
-					// CONTA A QUANTIDADE DE NÚMEROS PARES
 					par++;
 				}
 				else {
-					// CONTA A QUANTIDADE DE NÚMEROS ÍMPARES
 					impar++;
 				}
 			}

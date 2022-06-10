@@ -16,10 +16,10 @@ import java.util.Random;
 public class Questao1NumeroAleatorio {
 
 	public static void main(String[] args) {
-		Random numeroAleato = new Random();
-		int[][] matrizAleato = new int[4][4];
-		int maiorNum = Integer.MIN_VALUE;
-		int[] posicao = new int[2]; // matriz que receberá a posição do maior número
+		Random numeroAleato = new Random(); // inicializa a biblioteca Random
+		int[][] matrizAleato = new int[4][4]; // matriz que receberá números aleatórios
+		int maiorNum = Integer.MIN_VALUE; // maior valor da matriz
+		int[] posicao = new int[2]; // matriz que receberá a posição do maior número, 0 = i, 1 = j
 		
 		// GERA UMA MATRIZ 4x4 DE NÚMEROS ALEATÓRIOS
 		for (int i = 0; i < matrizAleato.length; i++) {
