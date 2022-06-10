@@ -1,22 +1,27 @@
-package lista6lacosrepeticao;
+/*
+ * Questao 02 Detran
+ * @date Maio 2022
+ * @author Ana Júlia da Cunha - Entra21
+ * 
+ * Questão 2 - Crie um programa que ajude o DETRAN a saber, o total de recursos que foram
+ * arrecadados com a aplicação de multas de trânsito.
+ * O programa deve ler as seguintes informações para cada motorista:
+ * 
+ * 	- O número da carteira de motorista
+ * 	- Número de multas;
+ * 	- Valor de cada uma das multas.
+ * 
+ * Deve ser impresso o valor da dívida de cada motorista e ao final da leitura o total de recursos 
+ * arrecadados (somatório de todas as multas). O programa deverá imprimir também o número da 
+ * carteira do motorista que obteve o maior número de multa
+ */
+
+package com.cunhanai.entra21.java.lista6repeticao;
 
 import java.util.Scanner;
 
 public class Questao02Detran {
 	
-	/*
-	 * Questão 2 - Crie um programa que ajude o DETRAN a saber, o total de recursos que foram
-	 * arrecadados com a aplicação de multas de trânsito.
-	 * O programa deve ler as seguintes informações para cada motorista:
-	 * 
-	 * 	- O número da carteira de motorista
-	 * 	- Número de multas;
-	 * 	- Valor de cada uma das multas.
-	 * 
-	 * Deve ser impresso o valor da dívida de cada motorista e ao final da leitura o total de recursos 
-	 * arrecadados (somatório de todas as multas). O programa deverá imprimir também o número da 
-	 * carteira do motorista que obteve o maior número de multa
-	 */
 	public static void main(String[] args) {
 		Scanner sc = new Scanner(System.in);
 		int numCNH, numMultas, maiorNum = 0, maiorCNH = 0;
