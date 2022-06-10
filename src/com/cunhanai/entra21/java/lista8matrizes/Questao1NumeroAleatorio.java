@@ -20,7 +20,7 @@ public class Questao1NumeroAleatorio {
 		int[][] matrizAleato = new int[4][4]; // matriz que receberá números aleatórios
 		int maiorNum = Integer.MIN_VALUE; // maior valor da matriz
 		int[] posicao = new int[2]; // matriz que receberá a posição do maior número, 0 = i, 1 = j
-		
+		// matrizAleato = {{1,2,3,4},{1,2,3,4},{1,2,3,4},{1,2,3,4}}
 		// GERA UMA MATRIZ 4x4 DE NÚMEROS ALEATÓRIOS
 		for (int i = 0; i < matrizAleato.length; i++) {
 			for (int j = 0; j < matrizAleato[i].length; j++) {

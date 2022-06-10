@@ -119,7 +119,7 @@ public class Questao6JogoDaVelha {
 				// VERIFICA SE A JOGADA É VÁLIDA
 				if (linha > 3 || linha < 1 || coluna > 3 || coluna < 1) {
 					// SE A LINHA OU A COLUNA FOR MAIOR 3 OU MENOR QUE 1, A JOGADA É INVÁLIDA
-					System.out.println("Jogada inválida! Por favor, digite valores entre 0 e 2.");
+					System.out.println("Jogada inválida! Por favor, digite valores entre 1 e 3.");
 				}
 				else if (tabuleiro[linha-1][coluna-1] == 'X' || tabuleiro[linha-1][coluna-1] == 'O') {
 					// SE A POSIÇÃO EM QUE DESEJA COLOCAR JÁ ESTIVER OCUPADA, A JOGADA É INVÁLIDA
