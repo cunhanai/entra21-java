@@ -1,4 +1,4 @@
-package lista6lacosrepeticao;
+package com.cunhanai.entra21.java.lista6repeticao;
 
 public class Questao03NumDiv11Resto5 {
 	
