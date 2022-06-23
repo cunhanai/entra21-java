@@ -13,7 +13,11 @@ package com.cunhanai.entra21.java.oop.lista1classeseatributos;
 public class Questao5ContaCorrente {
 	
 	int numero; // numero da conta corrente
+	int agencia; // agencia do cliente
 	float saldo; // saldo da conta corrente
 	String dono; // dono da conta 
 	boolean especial; // informa se a conta e especial ou nao
+	int limiteEspecial; // limite especial do usuario
+	int limiteEspecialUsado; // limite especial usado
+	boolean contaAtiva; // verifica se a conta esta ativa ou nao
 }

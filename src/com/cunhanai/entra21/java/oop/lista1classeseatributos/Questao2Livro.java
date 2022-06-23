@@ -11,8 +11,8 @@ package com.cunhanai.entra21.java.oop.lista1classeseatributos;
 
 public class Questao2Livro {
 	
-	int ISBN10; // ISBN-10 do livro
-	int ISBN13; // ISBN-13 do livro
+	String isbn10; // ISBN-10 do livro
+	String isbn13; // ISBN-13 do livro
 	String titulo; // titulo e subtitulo do livro
 	String autor; // autor(a) do livro
 	String genero; // genero do livro (ficcao, romance, aventura, terro etc.)

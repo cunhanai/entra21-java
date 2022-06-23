@@ -29,4 +29,5 @@ public class Questao4LivroDeBiblioteca {
 	float[] dimensoes = new float[3]; // dimensoes do livro, largura x grossura x altura
 	String numeroAcesso; // numero de acesso
 	boolean emprestado; // true caso o livro esteja emprestado para alguem
+	String clienteEmprestado; // cliente ao qual o livro foi emprestado
 }

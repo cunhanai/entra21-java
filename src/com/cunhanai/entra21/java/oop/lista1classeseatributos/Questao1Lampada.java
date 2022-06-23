@@ -11,7 +11,7 @@ package com.cunhanai.entra21.java.oop.lista1classeseatributos;
 
 public class Questao1Lampada {
 	
-	int CODIGO; // codigo da lampada no banco de dados
+	int codigo; // codigo da lampada no banco de dados
 	float preco; // preco da lampada
 	int estoque; // quantidade de lampadas em estoque
 	String marca; // marca da lampada
@@ -23,4 +23,6 @@ public class Questao1Lampada {
 	int potencia; // potencia da lampada em W
 	String tensao; // tensao eletrica (bivolt, autovolt)
 	int fluxoLuminoso; // o quanto a lampada ilumina
+	int garantia; // tempo de garantia da lampada
+	boolean ligada; // se a lampada esta ligada ou nao
 }
