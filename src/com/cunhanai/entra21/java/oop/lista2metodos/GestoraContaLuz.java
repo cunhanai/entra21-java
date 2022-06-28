@@ -1,4 +1,4 @@
-/*
+/**
  * Planilha Gastos Luz
  * @date 2022-06-24
  * @author Ana Julia da Cunha - Entra21
@@ -32,7 +32,7 @@ public class GestoraContaLuz {
 	public String[] dataPagamento = new String[qtdeMeses]; // data do pagamento 
 	public float[] mediaConsumo = new float[qtdeMeses]; // media de consumo
 	
-	/*
+	/**
 	 * Verifica o mes de menor consumo de luz.
 	 * @return String com o mes e o ano de menor consumo.
 	 */
@@ -49,7 +49,7 @@ public class GestoraContaLuz {
 		return str.substring(3);
 	}
 	
-	/*
+	/**
 	 * Verifica o mes de maior consumo de luz.
 	 * @return String com o mes e o ano de maior consumo.
 	 */

@@ -28,7 +28,7 @@ public class Aluno {
 	public String[] disciplinas = new String[3]; // nome de 3 disciplinas que esta cursando
 	public float[][] notas = new float[3][3]; // notas para as 3 respectivas disciplinas, i = indice disciplinas, j = notas
 	
-	/*
+	/**
 	 * Verifica se o aluno foi aprovado em uma determinada disciplina.
 	 * @param id e o indice da disciplina na matriz disciplinas.
 	 * @retuns <code>boolean</code> indicando se o aluno foi aprovado ou nao.

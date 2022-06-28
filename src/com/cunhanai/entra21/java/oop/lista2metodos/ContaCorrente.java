@@ -24,7 +24,7 @@ public class ContaCorrente {
 	public boolean especial; // se a conta e especial ou nao
 	public double limite; // limite do credito do cheque especial
 	
-	/*
+	/**
 	 * Saca o dinheiro se tiver saldo disponível na conta, se não tiver, verifica
 	 * se a conta é especial e se o cliente tem limite para sacar do cheque especial
 	 * caso tenha.
@@ -51,7 +51,7 @@ public class ContaCorrente {
 		}
 	}
 	
-	/*
+	/**
 	 * Deposita o dinheiro na conta corrente, somando o saldo atual
 	 * com o valor depositado.
 	 * @param valor a quantia a ser depositada.
@@ -61,7 +61,7 @@ public class ContaCorrente {
 		saldo += valor;
 	}
 	
-	/*
+	/**
 	 * Informa o saldo atual na conta corrente.
 	 * @return o valor do saldo em <code>double</code>.
 	 */
@@ -69,7 +69,7 @@ public class ContaCorrente {
 		return saldo;
 	}
 	
-	/*
+	/**
 	 * Verifica se o cliente possui uma conta especial e se pode usar o cheque especial
 	 * caso seja.
 	 * @param valor o valor a ser sacado.

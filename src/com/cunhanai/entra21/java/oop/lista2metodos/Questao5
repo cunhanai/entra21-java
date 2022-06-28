@@ -15,13 +15,13 @@ LEGENDA:
 	(A) int cpf
 	(A) int ctps
 	(A) salario
-	(A) atributos herdados de Funcionario
 	(A) String titulacao
 	(A) String areaPesquisa
-	(A) String[][] cursosDisciplinas // j =  disciplinas ministreadas, i = cursos dessas disciplinas
+	(A) String[][] cursosDisciplinas // j =  codigo disciplina ministrada, i = codigo curso da disciplina
 	
 	(M) cadastrarProfessor()
 	(M) adicionarDisciplina()
+	(M) alterarDados()
 
 =========================================================================
 (C) TecnicoAdm
@@ -32,11 +32,11 @@ LEGENDA:
 	(A) int cpf
 	(A) int ctps
 	(A) salario
-	(A) atributos herdados de Funcionario
 	(A) String cargo
 	(A) String departamento
 	
 	(M) cadastrarTecnicoAdm()
+	(M) alterarDados()
 
 =======================================================================
 (C) Curso
@@ -44,6 +44,7 @@ LEGENDA:
 	(A) String codigo
 	(A) String nome
 	(A) float duracao
+	(A) String[] disciplinas
 	
 	(M) cadastrarCurso
 
@@ -53,11 +54,14 @@ LEGENDA:
 	(A) String codigo
 	(A) nome
 	(A) float cargaHoraria
-	(A) int disciplinaID
-	
-	(M) cadastrarCurso
+	(A) String codigoCurso
 
 =======================================================================
 (C) Aluno
 	
-	// quais disciplinas sao cursadas por ele
+	(A) String nome
+	(A) String matricula
+	(A) String cpf
+	(A) String codigoCurso
+	
+======================================================================

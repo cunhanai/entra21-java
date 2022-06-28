@@ -92,7 +92,7 @@ public class Questao6JogoDaVelha {
 						jogadorX = true;
 						vencedor = false;
 						fim = false;
-						continue loop1;
+						continue;
 					}
 					else if (opcao == 2) {
 						// SE A OPÇÃO FOR 2, ENCERRA O LOOP PRINCIPAL
