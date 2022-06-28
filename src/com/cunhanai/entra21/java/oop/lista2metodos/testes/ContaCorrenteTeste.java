@@ -18,9 +18,9 @@ public class ContaCorrenteTeste {
 		ContaCorrente contaEsp = new ContaCorrente();
 		contaEsp.numero = 12345;
 		contaEsp.agencia = 321;
-		contaEsp.saldo = 200;
+		contaEsp.saldo = -20;
 		contaEsp.especial = true;
-		contaEsp.limite = 400;
+		contaEsp.limite = 2000;
 		
 		System.out.println("Saldo inicial da conta: " + contaEsp.consultarSaldo());
 		if (!contaEsp.sacar(300)) {

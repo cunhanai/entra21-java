@@ -15,6 +15,7 @@ LEGENDA:
 	(A) String dataPgto
 	(A) float mediaConsumo
 	
+	(M) cadastrarConta()
 	(M) String verificaMaiorConsumo()
 	(M) String verificaMenorConsumo()
 	
