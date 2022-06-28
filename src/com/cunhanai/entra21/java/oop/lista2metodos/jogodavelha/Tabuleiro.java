@@ -1,31 +1,13 @@
-/**
- * Jogo Da Velha
- * @date 2022-06-28
- * @author Ana Julia da Cunha - Entra21
- * 
- * 6. Reescreva o exercicio 7 da aula de Matrizes (Jogo da Velha). 
- * Desenvolva uma classe para representar o Jogo da Velha. Desenvolva 
- * uma classe para testar o Jogo.
- */
-
-package com.cunhanai.entra21.java.oop.lista2metodos.jogodavelha;
-
-import java.util.Scanner;
+package jogodavelha;
 
 public class Tabuleiro {
+
+	char[][] tabuleiro = new char[3][3];
+	int count = 0;
+	public boolean jogadorX = true;
 	
-	char[][] tabuleiro = new char[3][3]; // tabuleiro do jogo
-	int opcao; // opção para reiniciar ou encerrar partida
-	int count = 0; // conta quantas posições já foram preenchidas
-	public boolean jogadorX = true; // verifica se o jogador X é o jogador da vez
-	boolean fim = false; // verifica se o jogo está finalizado ou em execução
-	boolean vencedor = false; // verifica se há vencedor
-	
-	/**
-	 * Imprime tabuleiro do Jogo da Velha.
-	 */
 	public void imprimirTabuleiro() {
-		System.out.println("# JOGO DA VELHA #\n");
+		System.out.println("\n# JOGO DA VELHA #\n");
 		for (int i = 0; i < tabuleiro.length; i++) {
 			for (int j = 0; j < tabuleiro[i].length; j++) {
 				System.out.printf(" %C %s", tabuleiro[i][j], (j == 2 ? "" : "|"));
@@ -34,7 +16,35 @@ public class Tabuleiro {
 		}
 	}
 	
-	public boolean verificarJogada(int linha, int coluna) {
+	public boolean getJogador() {
+		return jogadorX;
+	}
+	
+	public int adicionarJogadas(int linha, int coluna) {
+		if (verificarJogada(linha, coluna)) {
+			if (getJogador()) {
+				// SE O JOGADOR FOR X:
+				tabuleiro[linha-1][coluna-1] = 'X'; // ADICIONA UM X NA POSIÇÃO INFORMADA
+				count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
+				jogadorX = false; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ O
+				return 0;
+			}
+			else {
+				// SE O JOGADOR FOR O:
+				tabuleiro[linha-1][coluna-1] = 'O'; // ADICIONA UM O NA POSIÇÃO INFORMADA
+				count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
+				jogadorX = true; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ
+				return 0;
+			}  
+			
+		}
+		else {
+			return 1;
+		}
+		
+	}
+	
+	boolean verificarJogada(int linha, int coluna) {
 		if (linha > 3 || linha < 1 || coluna > 3 || coluna < 1) {
 			// SE A LINHA OU A COLUNA FOR MAIOR 3 OU MENOR QUE 1, A JOGADA É INVÁLIDA
 			return false;
@@ -50,20 +60,6 @@ public class Tabuleiro {
 		}
 	}
 	
-	public void adicionarJogadas(int linha, int coluna) {
-		if (jogadorX) {
-			// SE O JOGADOR FOR X:
-			tabuleiro[linha-1][coluna-1] = 'X'; // ADICIONA UM X NA POSIÇÃO INFORMADA
-			count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
-			jogadorX = false; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ O
-		}
-		else {
-			// SE O JOGADOR FOR O:
-			tabuleiro[linha-1][coluna-1] = 'O'; // ADICIONA UM O NA POSIÇÃO INFORMADA
-			count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
-			jogadorX = true; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ 
-		}  
-	}
 	
 	/**
 	 * Verifica se ha vencedor.
@@ -102,12 +98,12 @@ public class Tabuleiro {
 	boolean verificarFim() {
 		if (verificarVencedor()) {
 			System.out.printf("%n%s %s %s", "Jogador", (jogadorX ? "O" : "X"), "venceu!!\n");
-			encerrarJogo();
+			imprimirMenuFim();
 			return true;
 		}
 		else if (count == 9) {
 			System.out.println("Deu velha! Ninguem venceu!");
-			encerrarJogo();
+			imprimirMenuFim();
 			return true;
 		}
 		else {
@@ -132,35 +128,32 @@ public class Tabuleiro {
 	 * Encerra ou reinicia partida
 	 * @return <code>boolean</code> se a partida foi encerrada ou não.
 	 */
-	public boolean encerrarJogo() {
-		Scanner sc = new Scanner(System.in);
-		if (verificarFim()) {
-			while (true) {	
-				// IMPRIME UM MENU DE OPÇÕES E PEDE A OPÇÃO DO USUÁRIO
-				System.out.println("Deseja reiniciar a partida?\n");
-				System.out.println("1 - Reiniciar");
-				System.out.println("2 - Encerrar");
-				opcao = sc.nextInt();
-				sc.close();
-				
-				if (opcao == 1) {
-					// SE A OPÇÃO FOR 1, RESETA TODOS OS DADOS E REINICIA O LOOP
-					zerarJogo();
-					return false;
-				}
-				else if (opcao == 2) {
-					// SE A OPÇÃO FOR 2, ENCERRA O LOOP PRINCIPAL
-					System.out.println("Encerrando jogo...");
-					return true;
-				}
-				else {
-					// SE NENHUMA DAS OPÇÕES DIGITADA FOR VÁLIDA, INFORMA AO USUÁRIO E PEDE NOVAMENTE
-					System.out.println("Opção inválida! Por favor, escolha 1 ou 2!");
-					return false;
-				}
+	public int encerrarJogo(int opcao) {
+		if (verificarFim()) {	
+			if (opcao == 1) {
+				// SE A OPÇÃO FOR 1, RESETA TODOS OS DADOS E REINICIA O LOOP
+				zerarJogo();
+				return -2;
 			}
+			else if (opcao == 2) {
+				// SE A OPÇÃO FOR 2, ENCERRA O LOOP PRINCIPAL
+				System.out.println("Encerrando jogo...");
+				return -1;
+			}
+			else {
+				// SE NENHUMA DAS OPÇÕES DIGITADA FOR VÁLIDA, INFORMA AO USUÁRIO E PEDE NOVAMENTE
+				System.out.println("\nOpção inválida! Por favor, escolha 1 ou 2!");
+				return 1;
+			}
+			
 		}
-		sc.close();
-		return false;
+		return 0;
+	}
+	
+	void imprimirMenuFim() {
+		// IMPRIME UM MENU DE OPÇÕES E PEDE A OPÇÃO DO USUÁRIO
+		System.out.println("\nDeseja reiniciar a partida?\n");
+		System.out.println("1 - Reiniciar");
+		System.out.println("2 - Encerrar");
 	}
 }

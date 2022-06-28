@@ -1,45 +1,44 @@
-package com.cunhanai.entra21.java.oop.lista2metodos.jogodavelha;
+package jogodavelha;
 
-//import java.util.Scanner;
+import java.util.Scanner;
 
 public class JogoDaVelha {
 
 	public static void main(String[] args) {
-		
-		/*
-		 * Tabuleiro velha = new Tabuleiro();
-		 
 		Scanner sc = new Scanner(System.in);
-		int linha, coluna;
+		Tabuleiro tab = new Tabuleiro();
+		int opcao, linha, coluna, encerrar;
+		
 		while (true) {
-			velha.imprimirTabuleiro();
-			if (!velha.encerrarJogo()) {
-				while (true) {
-					// PEDE AO USUÁRIO DA VEZ A POSIÇÃO DE SUA JOGADA 
-					System.out.printf("%n%s %S%n", "Vez do Jogador", (velha.jogadorX ? "X" : "O"));
-					System.out.print("Linha: ");
-					linha = sc.nextInt();
-					System.out.print("Coluna: ");
-					coluna = sc.nextInt();
-					
-					if (velha.verificarJogada(linha, coluna)) {
-						System.out.println("Jogada inválida!");
-						continue;
-					}
-					else {
-						break;
-					}
+			tab.imprimirTabuleiro();
+			if (tab.verificarFim()) {
+				opcao = sc.nextInt();
+				encerrar = tab.encerrarJogo(opcao);
+				
+				if (encerrar == -1) {
+					break;
+				}else if (encerrar == -2) {
+					continue;
 				}
 				
-				velha.adicionarJogadas(linha, coluna);			
 			}
-			else {
-				break;
+			
+			if (tab.getJogador() == true) {
+				System.out.println("Vez do X\n");
+			}else {
+				System.out.println("Vez do O\n");
+			}
+			
+			System.out.println("Linha: ");
+			linha = sc.nextInt();
+			System.out.println("Coluna: ");
+			coluna = sc.nextInt();
+			
+			if (tab.adicionarJogadas(linha, coluna) == 1) {
+				System.out.println("Jogada inválida!");
 			}
 		}
 		
-		sc.close();
-		*/
 	}
 
 }
