@@ -1,0 +1,21 @@
+Identifique as classes, atributos e métodos do cenário da questão 4
+
+LEGENDA: 
+	(C) Classe
+	(A) Atributo
+	(M) Método
+====================================================================
+
+ (C) GestoraContaLuz:
+ 
+	(A) String dataLeitura;
+	(A) int numLeitura
+	(A) float qtdeKw
+	(A) float valorPgto
+	(A) String dataPgto
+	(A) float mediaConsumo
+	
+	(M) String verificaMaiorConsumo()
+	(M) String verificaMenorConsumo()
+	
+=====================================================================

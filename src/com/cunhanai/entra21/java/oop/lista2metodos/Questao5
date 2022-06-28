@@ -1,0 +1,63 @@
+Identifique as classes, atributos e métodos do cenário da questão 4
+
+LEGENDA: 
+	(C) Classe
+	(A) Atributo
+	(M) Método
+
+
+========================================================================
+(C) Professor
+	
+	(A) String nome
+	(A) String[] endereco = new String[6] // 0 = rua, 1 = numero, 2 = bairro, 3 = cidade, 4 = estado, 5 = CEP
+	(A) int telefone
+	(A) int cpf
+	(A) int ctps
+	(A) salario
+	(A) atributos herdados de Funcionario
+	(A) String titulacao
+	(A) String areaPesquisa
+	(A) String[][] cursosDisciplinas // j =  disciplinas ministreadas, i = cursos dessas disciplinas
+	
+	(M) cadastrarProfessor()
+	(M) adicionarDisciplina()
+
+=========================================================================
+(C) TecnicoAdm
+	
+	(A) String nome
+	(A) String[] endereco = new String[6] // 0 = rua, 1 = numero, 2 = bairro, 3 = cidade, 4 = estado, 5 = CEP
+	(A) int telefone
+	(A) int cpf
+	(A) int ctps
+	(A) salario
+	(A) atributos herdados de Funcionario
+	(A) String cargo
+	(A) String departamento
+	
+	(M) cadastrarTecnicoAdm()
+
+=======================================================================
+(C) Curso
+
+	(A) String codigo
+	(A) String nome
+	(A) float duracao
+	
+	(M) cadastrarCurso
+
+=======================================================================
+(C) Disciplina
+	
+	(A) String codigo
+	(A) nome
+	(A) float cargaHoraria
+	(A) int disciplinaID
+	
+	(M) cadastrarCurso
+
+=======================================================================
+(C) Aluno
+	
+	// quais disciplinas sao cursadas por ele

@@ -3,17 +3,17 @@
  * @date 2022-06-23
  * @author Ana Julia da Cunha - Entra21
  * 
- * Crie uma classe de testes para testar a lampada da questao 1.
+ * Crie uma classe de testes para testar a classe lampada.
  */
 
 package com.cunhanai.entra21.java.oop.lista2metodos.testes;
 
-import com.cunhanai.entra21.java.oop.lista2metodos.Questao1Lampada;
+import com.cunhanai.entra21.java.oop.lista2metodos.Lampada;
 
-public class Questao1LampadaTeste {
+public class LampadaTeste {
 	
 	public static void main(String[] args) {
-		Questao1Lampada lampadaLED = new Questao1Lampada();
+		Lampada lampadaLED = new Lampada();
 		lampadaLED.marca = "Philips";
 		lampadaLED.tipo = "LED";
 		lampadaLED.cor = "branca";

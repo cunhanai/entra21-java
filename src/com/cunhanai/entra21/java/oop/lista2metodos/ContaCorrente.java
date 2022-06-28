@@ -1,5 +1,5 @@
 /*
- * Questao 2 Conta Corrente
+ * Conta Corrente
  * @date 2022-06-23
  * @author Ana Julia da Cunha - Entra21
  * 
@@ -8,11 +8,15 @@
  * métodos para realizar saque (verificando se o cliente pode realizar saques), 
  * despositar dinheiro, consultar saldo e verificar se o cliente está usando cheque 
  * especial ou não. Desenvolva um programa para testar essa classe.
+ * 
+ * OBS.: PROF HELOISA, COMO COLOQUEI OS TESTES EM OUTRO PACKAGE, ESTAVA DANDO ERRO COM
+ * A VISIBILIDADE DAS VARIAVEIS, ENTAO O ECLIPSE DISSE PARA EU MUDAR TODOS OS ATRIBUTOS
+ * E METODOS PARA PUBLIC
  */
 
 package com.cunhanai.entra21.java.oop.lista2metodos;
 
-public class Questao2ContaCorrente {
+public class ContaCorrente {
 	
 	public int numero; // numero da conta
 	public int agencia; // agencia da conta
@@ -21,7 +25,11 @@ public class Questao2ContaCorrente {
 	public double limite; // limite do credito do cheque especial
 	
 	/*
-	 * Saca o dinhei
+	 * Saca o dinheiro se tiver saldo disponível na conta, se não tiver, verifica
+	 * se a conta é especial e se o cliente tem limite para sacar do cheque especial
+	 * caso tenha.
+	 * @param valor a quantia a ser depositada.
+	 * @return um <code>boolean</code> indicando se foi possivel ou nao sacar o valor desejado.
 	 */
 	public boolean sacar(double valor) {
 		// SE O SALDO FOR MAIOR OU IGUAL AO VALOR QUE DESEJA SACAR
@@ -29,7 +37,7 @@ public class Questao2ContaCorrente {
 			saldo -= valor;
 			return true;			
 		}
-		// SE O VALOR FOR MENOR DO QUE O SALDO O CHEQUE ESPECIAL ESTIVER DISPONIVEL
+		// SE O VALOR FOR MAIOR DO QUE O SALDO O CHEQUE ESPECIAL ESTIVER DISPONIVEL
 		else if (verificarChequeEspecial(valor)) {
 			double aux = valor;
 			valor -= saldo;
@@ -49,8 +57,8 @@ public class Questao2ContaCorrente {
 	 * @param valor a quantia a ser depositada.
 	 * @return o novo saldo em <code>double</code>.
 	 */
-	public double depositar(double valor) {
-		return saldo += valor;
+	public void depositar(double valor) {
+		saldo += valor;
 	}
 	
 	/*
@@ -62,16 +70,12 @@ public class Questao2ContaCorrente {
 	}
 	
 	/*
-	 * Verifica se o cliente esta usando cheque especial.
+	 * Verifica se o cliente possui uma conta especial e se pode usar o cheque especial
+	 * caso seja.
 	 * @param valor o valor a ser sacado.
 	 * @return <code>boolean</code> informando se esta ou nao usando cheque especial.
 	 */
 	public boolean verificarChequeEspecial(double valor) {
-		if (saldo < valor && especial && limite > valor) {
-			return true;
-		}
-		else {
-			return false;
-		}
+		return (saldo < valor && especial && limite >= valor);
 	}
 }

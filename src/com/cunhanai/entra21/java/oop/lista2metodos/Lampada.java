@@ -1,5 +1,5 @@
 /*
- * Questao 1 Lampada
+ * Lampada
  * @date 2022-06-23
  * @author Ana Julia da Cunha - Entra21
  * 
@@ -13,7 +13,7 @@
 
 package com.cunhanai.entra21.java.oop.lista2metodos;
 
-public class Questao1Lampada {
+public class Lampada {
 	
 	public String marca; // marca da lampada
 	public String tipo; // tipo de lampada (LED, flourescente, incandescente, filamento etc.)
@@ -40,7 +40,7 @@ public class Questao1Lampada {
 	}
 	
 	/*
-	 * Liga a lampada.
+	 * Desliga a lampada.
 	 * @return um <code>boolean</code> especificando que a lampada desligou
 	 */
 	public boolean desligarLampada() {
