@@ -1,4 +1,4 @@
-/*
+/**
  * Lampada
  * @date 2022-06-23
  * @author Ana Julia da Cunha - Entra21
@@ -22,7 +22,7 @@ public class Lampada {
 	public int potencia; // potencia da lampada em W
 	public boolean ligada; // se a lampada esta ligada ou desligada
 	
-	/*
+	/**
 	 * Obtem o estado da lampada.
 	 * @return um <code>boolean</code> especificando se esta ligada ou desligada.
 	 */
@@ -30,7 +30,7 @@ public class Lampada {
 		return ligada;
 	}
 	
-	/*
+	/**
 	 * Liga a lampada.
 	 * @return um <code>boolean</code> especificando que a lampada ligou
 	 */
@@ -39,7 +39,7 @@ public class Lampada {
 		
 	}
 	
-	/*
+	/**
 	 * Desliga a lampada.
 	 * @return um <code>boolean</code> especificando que a lampada desligou
 	 */
@@ -48,7 +48,7 @@ public class Lampada {
 		
 	}
 	
-	/*
+	/**
 	 * Muda o status da lampada automaticamente, se esta ligada, desliga, se esta desligada, liga
 	 */
 	public void mudarEstado() {
@@ -60,7 +60,7 @@ public class Lampada {
 		}
 	}
 	
-	/*
+	/**
 	 * Mostra o estado da lampada no console.
 	 */
 	public String mostrarEstado() {
