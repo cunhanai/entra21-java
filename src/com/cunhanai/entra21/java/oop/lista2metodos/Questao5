@@ -32,6 +32,7 @@ LEGENDA:
 	(A) int cpf
 	(A) int ctps
 	(A) salario
+	
 	(A) String cargo
 	(A) String departamento
 	

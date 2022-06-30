@@ -30,14 +30,6 @@ public class Tabuleiro {
 	}
 	
 	/**
-	 * Pega o estado do jogador X.
-	 * @return retorna <code>true</code> se o jogador X for o jogador da vez, <code>false</code> se nao.
-	 */
-	public boolean getJogador() {
-		return jogadorX;
-	}
-	
-	/**
 	 * Adiciona uma jogada ao tabuleiro.
 	 * @param linha da jogada.
 	 * @param coluna da jogada.
@@ -89,6 +81,13 @@ public class Tabuleiro {
 		}
 	}
 	
+	/**
+	 * Pega o estado do jogador X.
+	 * @return retorna <code>true</code> se o jogador X for o jogador da vez, <code>false</code> se nao.
+	 */
+	public boolean getJogador() {
+		return jogadorX;
+	}
 	
 	/**
 	 * Verifica se ha vencedor.
