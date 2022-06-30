@@ -1,4 +1,14 @@
-package jogodavelha;
+/**
+ * Tabuleiro
+ * @author Ana Julia da Cunha - Entra21
+ * @date 2022-06-30
+ * 
+ * 6. Reescreva o exercicio 7 da aula de Matrizes (Jogo da Velha). 
+ * Desenvolva uma classe para representar o Jogo da Velha. Desenvolva 
+ * uma classe para testar o Jogo.
+ */
+
+package com.cunhanai.entra21.java.oop.lista2metodos.jogodavelha;
 
 public class Tabuleiro {
 
@@ -6,6 +16,9 @@ public class Tabuleiro {
 	int count = 0;
 	public boolean jogadorX = true;
 	
+	/**
+	 * Imprimir tabuleiro do jogo na tela.
+	 */
 	public void imprimirTabuleiro() {
 		System.out.println("\n# JOGO DA VELHA #\n");
 		for (int i = 0; i < tabuleiro.length; i++) {
@@ -16,34 +29,50 @@ public class Tabuleiro {
 		}
 	}
 	
+	/**
+	 * Pega o estado do jogador X.
+	 * @return retorna <code>true</code> se o jogador X for o jogador da vez, <code>false</code> se nao.
+	 */
 	public boolean getJogador() {
 		return jogadorX;
 	}
 	
-	public int adicionarJogadas(int linha, int coluna) {
+	/**
+	 * Adiciona uma jogada ao tabuleiro.
+	 * @param linha da jogada.
+	 * @param coluna da jogada.
+	 * @return um <code>boolean</code> se a jogada foi adicionada ou se a jogada não foi.
+	 */
+	public boolean adicionarJogadas(int linha, int coluna) {
 		if (verificarJogada(linha, coluna)) {
 			if (getJogador()) {
 				// SE O JOGADOR FOR X:
 				tabuleiro[linha-1][coluna-1] = 'X'; // ADICIONA UM X NA POSIÇÃO INFORMADA
 				count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
 				jogadorX = false; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ O
-				return 0;
+				return true;
 			}
 			else {
 				// SE O JOGADOR FOR O:
 				tabuleiro[linha-1][coluna-1] = 'O'; // ADICIONA UM O NA POSIÇÃO INFORMADA
 				count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
 				jogadorX = true; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ
-				return 0;
+				return true;
 			}  
 			
 		}
 		else {
-			return 1;
+			return false;
 		}
 		
 	}
 	
+	/**
+	 * Verifica se a jogada e valida ou invalida.
+	 * @param linha
+	 * @param coluna
+	 * @return <code>true</code> se for valida ou <code>false</code> se nao for.
+	 */
 	boolean verificarJogada(int linha, int coluna) {
 		if (linha > 3 || linha < 1 || coluna > 3 || coluna < 1) {
 			// SE A LINHA OU A COLUNA FOR MAIOR 3 OU MENOR QUE 1, A JOGADA É INVÁLIDA
@@ -96,11 +125,13 @@ public class Tabuleiro {
 	 * @return <code>boolean</code> caso o jogo esteja finalizado
 	 */
 	boolean verificarFim() {
+		// VERIFICA SE HA VENCEDOR
 		if (verificarVencedor()) {
 			System.out.printf("%n%s %s %s", "Jogador", (jogadorX ? "O" : "X"), "venceu!!\n");
 			imprimirMenuFim();
 			return true;
 		}
+		// VERIFICA SE DEU VELHA
 		else if (count == 9) {
 			System.out.println("Deu velha! Ninguem venceu!");
 			imprimirMenuFim();
@@ -111,17 +142,15 @@ public class Tabuleiro {
 		}
 	}
 	
+	
 	/**
-	 * Reseta todos os dados do jogo.
-	 */
-	void zerarJogo() {
-		for (int i = 0; i < tabuleiro.length; i++) {
-			for (int j = 0; j < tabuleiro[i].length; j++) {
-				tabuleiro[i][j] = 0;				
-			}
-		}
-		count = 0;
-		jogadorX = true;
+	* Imprime o menu final para encerrar ou reiniciar a partida.
+	*/
+	void imprimirMenuFim() {
+		// IMPRIME UM MENU DE OPÇÕES E PEDE A OPÇÃO DO USUÁRIO
+		System.out.println("\nDeseja reiniciar a partida?\n");
+		System.out.println("1 - Reiniciar");
+		System.out.println("2 - Encerrar");
 	}
 	
 	/**
@@ -149,11 +178,17 @@ public class Tabuleiro {
 		}
 		return 0;
 	}
-	
-	void imprimirMenuFim() {
-		// IMPRIME UM MENU DE OPÇÕES E PEDE A OPÇÃO DO USUÁRIO
-		System.out.println("\nDeseja reiniciar a partida?\n");
-		System.out.println("1 - Reiniciar");
-		System.out.println("2 - Encerrar");
+
+	/**
+	 * Reseta todos os dados do jogo.
+	 */
+	void zerarJogo() {
+		for (int i = 0; i < tabuleiro.length; i++) {
+			for (int j = 0; j < tabuleiro[i].length; j++) {
+				tabuleiro[i][j] = 0;				
+			}
+		}
+		count = 0;
+		jogadorX = true;
 	}
 }
