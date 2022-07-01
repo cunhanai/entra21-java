@@ -1,4 +1,4 @@
-package com.cunhanai.entra21.java.oop.lista3.gestaoacademica;
+package com.cunhanai.entra21.java.oop.lista3construtores.gestaoacademica;
 
 public class Disciplina {
 	

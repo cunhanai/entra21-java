@@ -1,8 +1,8 @@
-package com.cunhanai.entra21.java.oop.lista3.gestaoacademica.testes;
+package com.cunhanai.entra21.java.oop.lista3construtores.gestaoacademica.testes;
 
 import java.util.Scanner;
 
-import com.cunhanai.entra21.java.oop.lista3.gestaoacademica.Pessoa;
+import com.cunhanai.entra21.java.oop.lista3construtores.gestaoacademica.Pessoa;
 
 public class PessoaTest {
 
