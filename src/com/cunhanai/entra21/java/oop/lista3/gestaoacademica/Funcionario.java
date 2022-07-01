@@ -4,17 +4,16 @@
  * @date 2022-06-30
  */
 
-package com.cunhanai.entra21.java.oop.lista2metodos.gestaoacademica;
+package com.cunhanai.entra21.java.oop.lista3.gestaoacademica;
 
-public class Funcionario extends Pessoa{
-	
+public class Funcionario extends Pessoa {
+
 	private String endereco;
 	private String telefone;
 	private String ctps;
 	private float salario;
-	
-	public Funcionario(String nome, String endereco, String cpf, String telefone,
-			String ctps, float salario) {
+
+	public Funcionario(String nome, String endereco, String cpf, String telefone, String ctps, float salario) {
 		super(nome, cpf);
 		this.endereco = endereco;
 		this.telefone = telefone;
@@ -53,6 +52,5 @@ public class Funcionario extends Pessoa{
 	public void setSalario(float salario) {
 		this.salario = salario;
 	}
-	
-	
+
 }

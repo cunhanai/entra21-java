@@ -1,4 +1,4 @@
-package com.cunhanai.entra21.java.oop.lista2metodos.gestaoacademica;
+package com.cunhanai.entra21.java.oop.lista3.gestaoacademica;
 
 public class Pessoa {
 
@@ -11,6 +11,10 @@ public class Pessoa {
 
 	}
 
+	/**
+	 * Pega o nome da pessoa
+	 * @return uma <code>String</code> com o nome da pessoa 
+	 */
 	public String getNome() {
 		return nome;
 	}
@@ -27,5 +31,4 @@ public class Pessoa {
 		this.cpf = cpf;
 	}
 
-	
 }

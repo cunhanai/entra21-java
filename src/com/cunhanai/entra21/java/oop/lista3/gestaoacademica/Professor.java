@@ -4,15 +4,15 @@
  * @date 2022-06-30
  */
 
-package com.cunhanai.entra21.java.oop.lista2metodos.gestaoacademica;
+package com.cunhanai.entra21.java.oop.lista3.gestaoacademica;
 
 public class Professor extends Funcionario {
-	
+
 	private String titulacao;
 	private String areaDePesquisa;
-	
-	public Professor(String nome, String endereco, String cpf, String telefone,
-			String ctps, float salario, String titulacao, String areaDePesquia) {
+
+	public Professor(String nome, String endereco, String cpf, String telefone, String ctps, float salario,
+			String titulacao, String areaDePesquia) {
 		super(nome, endereco, cpf, telefone, ctps, salario);
 		this.titulacao = titulacao;
 		this.areaDePesquisa = areaDePesquia;
@@ -33,6 +33,5 @@ public class Professor extends Funcionario {
 	public void setAreaDePesquisa(String areaDePesquisa) {
 		this.areaDePesquisa = areaDePesquisa;
 	}
-	
-	
+
 }

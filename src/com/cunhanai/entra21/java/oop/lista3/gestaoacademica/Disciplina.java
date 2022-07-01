@@ -1,4 +1,4 @@
-package com.cunhanai.entra21.java.oop.lista2metodos.gestaoacademica;
+package com.cunhanai.entra21.java.oop.lista3.gestaoacademica;
 
 public class Disciplina {
 	
@@ -35,6 +35,5 @@ public class Disciplina {
 	public void setCargaHoraria(int cargaHoraria) {
 		this.cargaHoraria = cargaHoraria;
 	}
-	
-	
+
 }

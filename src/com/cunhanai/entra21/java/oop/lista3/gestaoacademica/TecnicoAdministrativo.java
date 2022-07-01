@@ -1,11 +1,12 @@
-package com.cunhanai.entra21.java.oop.lista2metodos.gestaoacademica;
+package com.cunhanai.entra21.java.oop.lista3.gestaoacademica;
 
 public class TecnicoAdministrativo extends Funcionario {
 
 	private String cargo;
 	private String departamento;
 
-	public TecnicoAdministrativo(String nome, String endereco, String cpf, String telefone, String ctps, float salario,	String cargo, String departamento) {
+	public TecnicoAdministrativo(String nome, String endereco, String cpf, String telefone, String ctps, float salario,
+			String cargo, String departamento) {
 		super(nome, endereco, cpf, telefone, ctps, salario);
 		this.cargo = cargo;
 		this.departamento = departamento;
@@ -27,5 +28,4 @@ public class TecnicoAdministrativo extends Funcionario {
 		this.departamento = departamento;
 	}
 
-	
 }
