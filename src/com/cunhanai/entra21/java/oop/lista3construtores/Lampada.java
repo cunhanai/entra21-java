@@ -98,11 +98,11 @@ public class Lampada {
 	 * Muda o status da lampada automaticamente, se esta ligada, desliga, se esta desligada, liga
 	 */
 	public void mudarEstado() {
-		if (!isLigada()) {
-			setLigada(ligarLampada());
+		if (isLigada()) {
+			setLigada(desligarLampada());
 		}
 		else {
-			setLigada(desligarLampada());
+			setLigada(ligarLampada());
 		}
 	}
 }
