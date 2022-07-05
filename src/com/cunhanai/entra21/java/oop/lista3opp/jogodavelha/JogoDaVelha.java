@@ -1,56 +1,87 @@
 package com.cunhanai.entra21.java.oop.lista3opp.jogodavelha;
 
 public class JogoDaVelha {
+
+	private char[][] tabuleiro;
+	private int count;
+	private boolean jogadorX;
 	
-	char[][] tabuleiro = new char[3][3];
-	int count = 0;
-	public boolean jogadorX = true;
+	public JogoDaVelha(boolean jogadorX) {
+		this.tabuleiro = new char[3][3];
+		this.count = 0;
+		this.jogadorX = jogadorX;
+	}
+
+	public char[][] getTabuleiro() {
+		return tabuleiro;
+	}
+
+	public void setTabuleiro(char[][] tabuleiro) {
+		this.tabuleiro = tabuleiro;
+	}
+
+	public int getCount() {
+		return count;
+	}
+
+	public void setCount(int count) {
+		this.count = count;
+	}
+
+	public boolean isJogadorX() {
+		return jogadorX;
+	}
+
+	public void setJogadorX(boolean jogadorX) {
+		this.jogadorX = jogadorX;
+	}
 
 	/**
 	 * Imprimir tabuleiro do jogo na tela.
 	 */
 	public void imprimirTabuleiro() {
 		System.out.println("\n# JOGO DA VELHA #\n");
-		for (int i = 0; i < tabuleiro.length; i++) {
-			for (int j = 0; j < tabuleiro[i].length; j++) {
-				System.out.printf(" %C %s", tabuleiro[i][j], (j == 2 ? "" : "|"));
+		for (int i = 0; i < this.tabuleiro.length; i++) {
+			for (int j = 0; j < this.tabuleiro[i].length; j++) {
+				System.out.printf(" %C %s", this.tabuleiro[i][j], (j == 2 ? "" : "|"));
 			}
 			System.out.println(i == 2 ? "\n" : "\n-----------");
 		}
 	}
-	
+
 	/**
 	 * Adiciona uma jogada ao tabuleiro.
-	 * @param linha da jogada.
+	 * 
+	 * @param linha  da jogada.
 	 * @param coluna da jogada.
-	 * @return um <code>boolean</code> se a jogada foi adicionada ou se a jogada não foi.
+	 * @return um <code>boolean</code> se a jogada foi adicionada ou se a jogada não
+	 *         foi.
 	 */
 	public boolean adicionarJogadas(int linha, int coluna) {
 		if (verificarJogada(linha, coluna)) {
-			if (getJogador()) {
+			if (isJogadorX()) {
 				// SE O JOGADOR FOR X:
-				tabuleiro[linha-1][coluna-1] = 'X'; // ADICIONA UM X NA POSIÇÃO INFORMADA
-				count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
-				jogadorX = false; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ O
+				this.tabuleiro[linha - 1][coluna - 1] = 'X'; // ADICIONA UM X NA POSIÇÃO INFORMADA
+				this.count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
+				this.jogadorX = false; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ O
 				return true;
-			}
-			else {
+			} else {
 				// SE O JOGADOR FOR O:
-				tabuleiro[linha-1][coluna-1] = 'O'; // ADICIONA UM O NA POSIÇÃO INFORMADA
+				tabuleiro[linha - 1][coluna - 1] = 'O'; // ADICIONA UM O NA POSIÇÃO INFORMADA
 				count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
 				jogadorX = true; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ
 				return true;
-			}  
-			
-		}
-		else {
+			}
+
+		} else {
 			return false;
 		}
-		
+
 	}
-	
+
 	/**
 	 * Verifica se a jogada e valida ou invalida.
+	 * 
 	 * @param linha
 	 * @param coluna
 	 * @return <code>true</code> se for valida ou <code>false</code> se nao for.
@@ -59,28 +90,19 @@ public class JogoDaVelha {
 		if (linha > 3 || linha < 1 || coluna > 3 || coluna < 1) {
 			// SE A LINHA OU A COLUNA FOR MAIOR 3 OU MENOR QUE 1, A JOGADA É INVÁLIDA
 			return false;
-		}
-		else if (tabuleiro[linha-1][coluna-1] == 'X' || tabuleiro[linha-1][coluna-1] == 'O') {
+		} else if (tabuleiro[linha - 1][coluna - 1] == 'X' || tabuleiro[linha - 1][coluna - 1] == 'O') {
 			// SE A POSIÇÃO EM QUE DESEJA COLOCAR JÁ ESTIVER OCUPADA, A JOGADA É INVÁLIDA
 			return false;
-			
-		}
-		else {
+
+		} else {
 			// SE A JOGADA FOR VÁLIDA
 			return true;
 		}
 	}
-	
-	/**
-	 * Pega o estado do jogador X.
-	 * @return retorna <code>true</code> se o jogador X for o jogador da vez, <code>false</code> se nao.
-	 */
-	public boolean getJogador() {
-		return jogadorX;
-	}
-	
+
 	/**
 	 * Verifica se ha vencedor.
+	 * 
 	 * @return <code>boolean</code> indicando se ha ou nao vencedor.
 	 */
 	boolean verificarVencedor() {
@@ -90,7 +112,7 @@ public class JogoDaVelha {
 					|| (tabuleiro[i][0] == 'O' && tabuleiro[i][1] == 'O' && tabuleiro[i][2] == 'O')) {
 				return true;
 			}
-			
+
 			for (int j = 0; j < tabuleiro[i].length; j++) {
 				// SE UMA COLUNA ESTIVER EXCLUSIVAMENTE PREENCHIDA COM 'X' OU 'O', HÁ VENCEDOR
 				if ((tabuleiro[0][j] == 'X' && tabuleiro[1][j] == 'X' && tabuleiro[2][j] == 'X')
@@ -108,9 +130,11 @@ public class JogoDaVelha {
 		}
 		return false;
 	}
-	
+
 	/**
-	 * Verifica se o jogo acabou, seja por algum jogador vencer, ou pela quantidade de jogadas acabar.
+	 * Verifica se o jogo acabou, seja por algum jogador vencer, ou pela quantidade
+	 * de jogadas acabar.
+	 * 
 	 * @return <code>boolean</code> caso o jogo esteja finalizado
 	 */
 	boolean verificarFim() {
@@ -125,45 +149,43 @@ public class JogoDaVelha {
 			System.out.println("Deu velha! Ninguem venceu!");
 			imprimirMenuFim();
 			return true;
-		}
-		else {
+		} else {
 			return false;
 		}
 	}
-	
-	
+
 	/**
-	* Imprime o menu final para encerrar ou reiniciar a partida.
-	*/
+	 * Imprime o menu final para encerrar ou reiniciar a partida.
+	 */
 	void imprimirMenuFim() {
 		// IMPRIME UM MENU DE OPÇÕES E PEDE A OPÇÃO DO USUÁRIO
 		System.out.println("\nDeseja reiniciar a partida?\n");
 		System.out.println("1 - Reiniciar");
 		System.out.println("2 - Encerrar");
 	}
-	
+
 	/**
 	 * Encerra ou reinicia partida
+	 * 
 	 * @return <code>boolean</code> se a partida foi encerrada ou não.
 	 */
 	public int encerrarJogo(int opcao) {
-		if (verificarFim()) {	
+		if (verificarFim()) {
 			if (opcao == 1) {
 				// SE A OPÇÃO FOR 1, RESETA TODOS OS DADOS E REINICIA O LOOP
 				zerarJogo();
 				return -2;
-			}
-			else if (opcao == 2) {
+			} else if (opcao == 2) {
 				// SE A OPÇÃO FOR 2, ENCERRA O LOOP PRINCIPAL
 				System.out.println("Encerrando jogo...");
 				return -1;
-			}
-			else {
-				// SE NENHUMA DAS OPÇÕES DIGITADA FOR VÁLIDA, INFORMA AO USUÁRIO E PEDE NOVAMENTE
+			} else {
+				// SE NENHUMA DAS OPÇÕES DIGITADA FOR VÁLIDA, INFORMA AO USUÁRIO E PEDE
+				// NOVAMENTE
 				System.out.println("\nOpção inválida! Por favor, escolha 1 ou 2!");
 				return 1;
 			}
-			
+
 		}
 		return 0;
 	}
@@ -174,7 +196,7 @@ public class JogoDaVelha {
 	void zerarJogo() {
 		for (int i = 0; i < tabuleiro.length; i++) {
 			for (int j = 0; j < tabuleiro[i].length; j++) {
-				tabuleiro[i][j] = 0;				
+				tabuleiro[i][j] = 0;
 			}
 		}
 		count = 0;
