@@ -1,6 +1,6 @@
-package com.cunhanai.entra21.java.oop.lista3construtores.testes;
+package com.cunhanai.entra21.java.oop.lista3opp.testes;
 
-import com.cunhanai.entra21.java.oop.lista3construtores.ContaCorrente;
+import com.cunhanai.entra21.java.oop.lista3opp.ContaCorrente;
 
 public class ContaCorrenteTeste {
 

@@ -1,4 +1,4 @@
-package com.cunhanai.entra21.java.oop.lista3construtores;
+package com.cunhanai.entra21.java.oop.lista3opp;
 
 public class ContaCorrente {
 
