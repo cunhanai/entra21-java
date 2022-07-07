@@ -1,3 +1,12 @@
+/**
+ * Jogo Da Velha
+ * @author Ana Julia da Cunha - Entra21
+ * @date 2022-07-07
+ * 
+ * 6. Reescreva o exercicio 7 da aula de Matrizes (Jogo da Velha). Desenvolva uma classe para representar o Jogo da Velha. Desenvolva 
+ * uma classe para testar o Jogo.
+ */
+
 package com.cunhanai.entra21.java.oop.lista3opp.jogodavelha;
 
 public class JogoDaVelha {
@@ -5,11 +14,11 @@ public class JogoDaVelha {
 	private char[][] tabuleiro;
 	private int count;
 	private boolean jogadorX;
-	
-	public JogoDaVelha(boolean jogadorX) {
+
+	public JogoDaVelha() {
 		this.tabuleiro = new char[3][3];
 		this.count = 0;
-		this.jogadorX = jogadorX;
+		this.jogadorX = true;
 	}
 
 	public char[][] getTabuleiro() {
@@ -37,7 +46,7 @@ public class JogoDaVelha {
 	}
 
 	/**
-	 * Imprimir tabuleiro do jogo na tela.
+	 * Imprime tabuleiro do jogo na tela.
 	 */
 	public void imprimirTabuleiro() {
 		System.out.println("\n# JOGO DA VELHA #\n");
@@ -60,16 +69,18 @@ public class JogoDaVelha {
 	public boolean adicionarJogadas(int linha, int coluna) {
 		if (verificarJogada(linha, coluna)) {
 			if (isJogadorX()) {
-				// SE O JOGADOR FOR X:
+				// SE O JOGADOR DA VEZ FOR X:
 				this.tabuleiro[linha - 1][coluna - 1] = 'X'; // ADICIONA UM X NA POSIÇÃO INFORMADA
 				this.count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
-				this.jogadorX = false; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ O
+				setJogadorX(false);
+				; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ 'O'
 				return true;
 			} else {
-				// SE O JOGADOR FOR O:
-				tabuleiro[linha - 1][coluna - 1] = 'O'; // ADICIONA UM O NA POSIÇÃO INFORMADA
+				// SE O JOGADOR DA VEZ FOR O:
+				this.tabuleiro[linha - 1][coluna - 1] = 'O'; // ADICIONA UM O NA POSIÇÃO INFORMADA
 				count++; // ADICIONA +1 A CONTAGEM DE POSIÇÕES OCUPADAS
-				jogadorX = true; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ
+				setJogadorX(true);
+				; // DEFINE QUE O PRÓXIMO JOGADOR SERÁ 'X'
 				return true;
 			}
 
@@ -82,18 +93,17 @@ public class JogoDaVelha {
 	/**
 	 * Verifica se a jogada e valida ou invalida.
 	 * 
-	 * @param linha
-	 * @param coluna
+	 * @param linha da jogada.
+	 * @param coluna da jogada.
 	 * @return <code>true</code> se for valida ou <code>false</code> se nao for.
 	 */
-	boolean verificarJogada(int linha, int coluna) {
+	public boolean verificarJogada(int linha, int coluna) {
 		if (linha > 3 || linha < 1 || coluna > 3 || coluna < 1) {
 			// SE A LINHA OU A COLUNA FOR MAIOR 3 OU MENOR QUE 1, A JOGADA É INVÁLIDA
 			return false;
-		} else if (tabuleiro[linha - 1][coluna - 1] == 'X' || tabuleiro[linha - 1][coluna - 1] == 'O') {
+		} else if (this.tabuleiro[linha - 1][coluna - 1] == 'X' || this.tabuleiro[linha - 1][coluna - 1] == 'O') {
 			// SE A POSIÇÃO EM QUE DESEJA COLOCAR JÁ ESTIVER OCUPADA, A JOGADA É INVÁLIDA
 			return false;
-
 		} else {
 			// SE A JOGADA FOR VÁLIDA
 			return true;
@@ -105,25 +115,27 @@ public class JogoDaVelha {
 	 * 
 	 * @return <code>boolean</code> indicando se ha ou nao vencedor.
 	 */
-	boolean verificarVencedor() {
-		for (int i = 0; i < tabuleiro.length; i++) {
+	public boolean verificarVencedor() {
+		for (int i = 0; i < this.tabuleiro.length; i++) {
 			// SE UMA LINHA ESTIVER EXCLUSIVAMENTE PREENCHIDA COM 'X' OU 'O', HÁ VENCEDOR
-			if ((tabuleiro[i][0] == 'X' && tabuleiro[i][1] == 'X' && tabuleiro[i][2] == 'X')
-					|| (tabuleiro[i][0] == 'O' && tabuleiro[i][1] == 'O' && tabuleiro[i][2] == 'O')) {
+			if ((this.tabuleiro[i][0] == 'X' && this.tabuleiro[i][1] == 'X' && this.tabuleiro[i][2] == 'X')
+					|| (this.tabuleiro[i][0] == 'O' && this.tabuleiro[i][1] == 'O' && this.tabuleiro[i][2] == 'O')) {
 				return true;
 			}
 
-			for (int j = 0; j < tabuleiro[i].length; j++) {
+			for (int j = 0; j < this.tabuleiro[i].length; j++) {
 				// SE UMA COLUNA ESTIVER EXCLUSIVAMENTE PREENCHIDA COM 'X' OU 'O', HÁ VENCEDOR
-				if ((tabuleiro[0][j] == 'X' && tabuleiro[1][j] == 'X' && tabuleiro[2][j] == 'X')
-						|| (tabuleiro[0][j] == 'O' && tabuleiro[1][j] == 'O' && tabuleiro[2][j] == 'O')) {
+				if ((this.tabuleiro[0][j] == 'X' && this.tabuleiro[1][j] == 'X' && this.tabuleiro[2][j] == 'X')
+						|| (this.tabuleiro[0][j] == 'O' && this.tabuleiro[1][j] == 'O'
+								&& this.tabuleiro[2][j] == 'O')) {
 					return true;
 				}
 				// SE UMA DIAGONAL ESTIVER EXCLUSIVAMENTE PREENCHIDA COM 'X' OU 'O', HÁ VENCEDOR
-				else if ((tabuleiro[0][0] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][2] == 'X')
-						|| (tabuleiro[0][2] == 'X' && tabuleiro[1][1] == 'X' && tabuleiro[2][0] == 'X')
-						|| (tabuleiro[0][0] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][2] == 'O')
-						|| (tabuleiro[0][2] == 'O' && tabuleiro[1][1] == 'O' && tabuleiro[2][0] == 'O')) {
+				else if ((this.tabuleiro[0][0] == 'X' && this.tabuleiro[1][1] == 'X' && this.tabuleiro[2][2] == 'X')
+						|| (this.tabuleiro[0][2] == 'X' && this.tabuleiro[1][1] == 'X' && this.tabuleiro[2][0] == 'X')
+						|| (this.tabuleiro[0][0] == 'O' && this.tabuleiro[1][1] == 'O' && this.tabuleiro[2][2] == 'O')
+						|| (this.tabuleiro[0][2] == 'O' && this.tabuleiro[1][1] == 'O'
+								&& this.tabuleiro[2][0] == 'O')) {
 					return true;
 				}
 			}
@@ -135,12 +147,12 @@ public class JogoDaVelha {
 	 * Verifica se o jogo acabou, seja por algum jogador vencer, ou pela quantidade
 	 * de jogadas acabar.
 	 * 
-	 * @return <code>boolean</code> caso o jogo esteja finalizado
+	 * @return <code>boolean</code> caso o jogo esteja finalizado.
 	 */
-	boolean verificarFim() {
+	public boolean verificarFim() {
 		// VERIFICA SE HA VENCEDOR
 		if (verificarVencedor()) {
-			System.out.printf("%n%s %s %s", "Jogador", (jogadorX ? "O" : "X"), "venceu!!\n");
+			System.out.printf("%n%s %s %s", "Jogador", (isJogadorX() ? "O" : "X"), "venceu!!\n");
 			imprimirMenuFim();
 			return true;
 		}
@@ -157,7 +169,7 @@ public class JogoDaVelha {
 	/**
 	 * Imprime o menu final para encerrar ou reiniciar a partida.
 	 */
-	void imprimirMenuFim() {
+	public void imprimirMenuFim() {
 		// IMPRIME UM MENU DE OPÇÕES E PEDE A OPÇÃO DO USUÁRIO
 		System.out.println("\nDeseja reiniciar a partida?\n");
 		System.out.println("1 - Reiniciar");
@@ -167,6 +179,7 @@ public class JogoDaVelha {
 	/**
 	 * Encerra ou reinicia partida
 	 * 
+	 * @param opcao da jogada com base no menu de fim.
 	 * @return <code>boolean</code> se a partida foi encerrada ou não.
 	 */
 	public int encerrarJogo(int opcao) {
@@ -185,7 +198,6 @@ public class JogoDaVelha {
 				System.out.println("\nOpção inválida! Por favor, escolha 1 ou 2!");
 				return 1;
 			}
-
 		}
 		return 0;
 	}
@@ -193,13 +205,13 @@ public class JogoDaVelha {
 	/**
 	 * Reseta todos os dados do jogo.
 	 */
-	void zerarJogo() {
+	public void zerarJogo() {
 		for (int i = 0; i < tabuleiro.length; i++) {
 			for (int j = 0; j < tabuleiro[i].length; j++) {
-				tabuleiro[i][j] = 0;
+				tabuleiro[i][j] = 0; // ZERA O TABULEIRO
 			}
 		}
-		count = 0;
-		jogadorX = true;
+		setCount(0); // ZERA A CONTAGEM DE JOGADAS
+		setJogadorX(true); // DEFINE O PRIMEIRO JOGADOR COMO 'X'
 	}
 }

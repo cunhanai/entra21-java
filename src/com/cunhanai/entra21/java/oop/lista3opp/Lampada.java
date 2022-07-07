@@ -1,3 +1,11 @@
+/**
+ * Lampada
+ * @date 2022-07-05
+ * @author Ana Julia da Cunha - Entra21
+ * 
+ * 1.Escreva uma classe para representar uma lampada. Desenvolva metodos para ligar, desligar, mostrarEstado e mudarEstado da lampada.
+ */
+
 package com.cunhanai.entra21.java.oop.lista3opp;
 
 public class Lampada {
@@ -99,10 +107,10 @@ public class Lampada {
 	 */
 	public void mudarEstado() {
 		if (isLigada()) {
-			setLigada(desligarLampada());
+			setLigada(desligarLampada()); // DESLIGA A LAMPADA
 		}
 		else {
-			setLigada(ligarLampada());
+			setLigada(ligarLampada()); // LIGA A LAMPADA
 		}
 	}
 }

@@ -1,3 +1,12 @@
+/**
+ * Conta Corrente Teste
+ * @date 2022-07-01
+ * @author Ana Julia da Cunha - Entra21
+ * 
+ * Classe de teste para a classe ContaCorrente, do exercicio 2.
+ */
+
+
 package com.cunhanai.entra21.java.oop.lista3opp.testes;
 
 import com.cunhanai.entra21.java.oop.lista3opp.ContaCorrente;
@@ -7,7 +16,7 @@ public class ContaCorrenteTeste {
 	public static void main(String[] args) {
 		
 		// PRIMEIRO TESTE - CONTA ESPECIAL
-		ContaCorrente contaEsp = new ContaCorrente(12345, 321, -20, true, 2000);
+		ContaCorrente contaEsp = new ContaCorrente(12345, 321, -20, true, 2000); // CONSTRUTOR QUE DEFINE O LIMITE
 
 		System.out.println("Saldo inicial da conta: " + contaEsp.getSaldo());
 		if (!contaEsp.sacar(300)) {
@@ -26,7 +35,7 @@ public class ContaCorrenteTeste {
 		System.out.println();
 		
 		// SEGUNDO TESTE - CONTA COMUM
-		ContaCorrente contaCom = new ContaCorrente(12346, 321, 200, false);
+		ContaCorrente contaCom = new ContaCorrente(12346, 321, 200, false); // CONSTRUTOR QUE NÃO DEFINE LIMITE
 		
 		System.out.println("Saldo inicial da conta: " + contaCom.getSaldo());
 		if (!contaCom.sacar(300)) {
