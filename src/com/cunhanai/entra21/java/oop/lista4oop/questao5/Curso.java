@@ -65,5 +65,14 @@ public class Curso {
 	public void setAlunos(Aluno[] alunos) {
 		this.alunos = alunos;
 	}
+	
+	public float calcularMediaTurma() {
+		float media = 0;
+		for (Aluno aluno : alunos) {
+			media += aluno.calcularMedia();
+		}
+		media /= alunos.length;
+		return media;
+	}
 
 }

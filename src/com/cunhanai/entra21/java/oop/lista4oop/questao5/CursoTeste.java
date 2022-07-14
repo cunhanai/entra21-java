@@ -69,6 +69,10 @@ public class CursoTeste {
 			// Verificando aprovacao
 			System.out.println("\n\nAluno " + (aluno.verificarAprovacao() ? "aprovado." : "reprovado."));
 		}
+		
+		// Printando media da turma
+		System.out.println("=================");
+		System.out.printf("%nMedia da turma: %.2f", curso.calcularMediaTurma());
 	}
 
 }
