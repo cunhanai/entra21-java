@@ -20,6 +20,11 @@ public class Aluno {
 	public Aluno(String matricula) {
 		this.matricula = matricula;
 	}
+	
+	public Aluno(String nome, String matricula) {
+		this.nome = nome;
+		this.matricula = matricula;
+	}
 
 	public Aluno(String nome, String matricula, float[] notas) {
 		this.nome = nome;
@@ -50,11 +55,19 @@ public class Aluno {
 	public void setNotas(float[] notas) {
 		this.notas = notas;
 	}
-
+	
+	/**
+	 * Calcula a media do aluno.
+	 * @return a media do aluno em <code>float</code>.
+	 */
 	public float calcularMedia() {
 		return (notas[0] + notas[1] + notas[2] + notas[3])/4;
 	}
 	
+	/**
+	 * Verifica a aprovacao do aluno.
+	 * @return <code>true</code> se o aluno for aprovado e <code>false</code> se reprovou. 
+	 */
 	public boolean verificarAprovacao() {
 		return calcularMedia() >= 7;
 	}

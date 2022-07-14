@@ -1,4 +1,4 @@
-package ListaSeisEstruturasDeRepeticao;
+package prof.materiais.logica.Recordings;
 
 import java.util.Scanner;
 

@@ -20,6 +20,12 @@ public class Curso {
 	private Calendar horario;
 	private Professor professor;
 	private Aluno[] alunos;
+	
+	public Curso(String nome, Professor professor, Aluno[] alunos) {
+		this.nome = nome;
+		this.professor = professor;
+		this.alunos = alunos;
+	}
 
 	public Curso(String nome, Calendar horario, Professor professor, Aluno[] alunos) {
 		this.nome = nome;
