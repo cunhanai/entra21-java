@@ -66,6 +66,10 @@ public class Curso {
 		this.alunos = alunos;
 	}
 	
+	/**
+	 * Calcula a media da turma.
+	 * @return <code>float</code> com a media geral da turma.
+	 */
 	public float calcularMediaTurma() {
 		float media = 0;
 		for (Aluno aluno : alunos) {
