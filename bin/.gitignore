@@ -1,4 +1,8 @@
-/prof/
+/bin/
+/.classpath
+/.gitignore
+/.project
 /com/
 /materiais/
+/prof/
 /module-info.class
