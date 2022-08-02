@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<classpath>
-	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry excluding="prof/materiais/logica/Classes exemplo Matriz/|prof/materiais/logica/Classes exemplo Arrays/|prof/materiais/logica/Classes exemplo/" kind="src" path=""/>
-	<classpathentry kind="src" path="prof/materiais/logica/Classes exemplo"/>
-	<classpathentry kind="src" path="prof/materiais/logica/Classes exemplo Arrays"/>
-	<classpathentry kind="src" path="prof/materiais/logica/Classes exemplo Matriz"/>
-	<classpathentry kind="output" path="bin"/>
-</classpath>
