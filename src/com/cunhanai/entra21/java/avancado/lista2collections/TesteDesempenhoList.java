@@ -1,4 +1,4 @@
-package com.cunhanai.entra21.java.avancaco.lista2collections;
+package com.cunhanai.entra21.java.avancado.lista2collections;
 
 import java.util.ArrayList;
 import java.util.LinkedList;
