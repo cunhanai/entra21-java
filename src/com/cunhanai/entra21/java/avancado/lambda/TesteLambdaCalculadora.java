@@ -54,7 +54,7 @@ public class TesteLambdaCalculadora {
 			double dividir = Calculadora.calcular(n1, n2, (x, y) -> x / y);
 			System.out.println(dividir);
 			break;
-		case 0:
+		case 5:
 			t = false;
 			break;
 		}
