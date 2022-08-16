@@ -1,3 +1,13 @@
+/**
+ * Questao 1 - Lista 7 de OOP: Tratamento de Excecoes
+ * @author Ana Julia da Cunha - Entra21
+ * @date Agust, 2022
+ * 
+ * 1. O codigo abaixo lança uma exceção (propositalmente) e interrompe sua execucao.
+ * Utilizando o tratamento de excecoes, corrija a classe com o objetivo de nao parar sua execucao.
+ * OBS:: A Exception lancada e ArrayIndexOutOfBoundsException.
+ */
+
 package com.cunhanai.entra21.java.oop.lista7excecoes;
 
 public class Questao1 {
@@ -34,10 +44,10 @@ public class Questao1 {
 					array[j] = arrayAux[j];
 				}
 				i--;
-				
+
 			}
 		}
-		
+
 		System.out.println("fim do metodo2");
 	}
 
