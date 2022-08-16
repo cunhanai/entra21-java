@@ -1,4 +1,4 @@
-package com.entra21.cursojavamanha.oop.listaexercicios.tratamentoexcecoes;
+package materiais.oop.tratamentoexcecoes;
 
 public class Conta {
 
