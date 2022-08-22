@@ -1,0 +1,30 @@
+create table tb_projeto(
+	num_projeto int auto_increment primary key,
+    orcamento varchar(50)
+);
+
+create table tb_fornecedor(
+	num_fornecedor int auto_increment primary key,
+    endereco varchar(50)
+);
+
+create table tb_peca(
+	num_peca int auto_increment primary key,
+    peso int,
+    cor varchar(50)
+);
+
+create table tb_controleMaterial(
+	num_controle int auto_increment primary key,
+    num_fornecedor int not null,
+    num_peca int not null, 
+    num_projeto int not null,
+    qtde_pecas int,
+    constraint fk_controleF foreign key (num_fornecedor) references tb_fornecedor(num_fornecedor),
+    constraint fk_controleP foreign key (num_projeto) references tb_projeto(num_projeto),
+    constraint fk_controlePeca foreign key (num_peca) references tb_peca(num_peca)
+);
+
+alter table tb_projeto
+add dt_inicio datetime not null,
+add hr_trabalhadas int not null;
