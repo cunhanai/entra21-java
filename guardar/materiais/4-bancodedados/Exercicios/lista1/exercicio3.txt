@@ -1,0 +1,179 @@
+-- CREATE SCHEMA
+
+create schema exercicio3;
+
+-- CREATE
+
+create table tb_vendedor (
+	COD_Vendedor int auto_increment primary key,
+    nome varchar(50) not null,
+    endereco varchar(50),
+    comissao float not null
+);
+
+create table tb_cliente (
+	COD_Cliente int auto_increment primary key,
+    nome varchar(50) not null,
+    endereco varchar(50),
+    fat_acumulado float not null,
+    limite_credito int,
+    COD_Vendedor int not null,
+    constraint fk_ClienteV foreign key (COD_Vendedor) references tb_vendedor(COD_Vendedor)
+);
+
+create table tb_armazem (
+	COD_Armazem int auto_increment primary key,
+    endereco varchar(50) not null
+);
+
+create table tb_peca (
+	COD_Peca int auto_increment primary key,
+    descricao varchar(50) not null,
+    preco float not null,
+    qtde_estoque int not null,
+    COD_Armazem int not null,
+    constraint fk_pecaA foreign key (COD_Armazem) references tb_armazem(COD_Armazem)
+);
+
+create table tb_pedido (
+    COD_Pedido int auto_increment primary key,
+    dt_pedido datetime not null,
+    COD_Cliente int not null,
+    COD_Vendedor int not null,
+    constraint fk_pedidoC foreign key (COD_Cliente) references tb_cliente(COD_Cliente),
+	constraint fk_pedidoV foreign key (COD_Vendedor) references tb_vendedor(COD_Vendedor)
+);
+
+create table tb_item (
+    COD_Item int auto_increment primary key,
+    COD_Pedido int not null,
+    COD_peca int not null,
+    qtde int not null,
+    constraint fk_itemPedido foreign key (COD_Pedido) references tb_pedido(COD_Pedido),
+    constraint fk_itemPeca foreign key (COD_Peca) references tb_peca(COD_Peca)
+);
+
+alter table tb_cliente modify fat_acumulado int not null default 0;
+alter table tb_cliente change nome Nome varchar(50) not null;
+
+-- ALTER TABLE nome_da_tabela
+-- CHANGE nome_atual novo_nome [tipo de dados];
+
+
+-- INSERT
+
+insert into tb_vendedor (nome, endereco, comissao)
+values ("Amanda", "Rua das Nacoes", 200);
+
+insert into tb_vendedor (nome, endereco, comissao)
+values ("Joao", "Rua Doginho", 150);
+
+insert into tb_vendedor (nome, endereco, comissao)
+values ("Lina", "Rua Yaoyao", 250);
+
+
+insert into tb_cliente (nome, endereco, fat_acumulado, limite_credito, COD_Vendedor)
+values ("Elana", "Rua A", 0, 200, 1);
+
+insert into tb_cliente (nome, endereco, limite_credito, COD_Vendedor)
+values ("Vivian", "Estrada Geral", 1000, 2);
+
+insert into tb_cliente (nome, endereco, limite_credito, COD_Vendedor)
+values ("Eric", "Estrada Geral", 500, 2);
+
+
+insert into tb_armazem (endereco) values ("Rua B");
+
+insert into tb_armazem (endereco)
+values ("Rua rua rua");
+
+insert into tb_armazem (endereco)
+values ("Rua 3");
+
+
+insert into tb_peca (descricao, preco, qtde_estoque, COD_Armazem)
+values ("Celular", 2200, 5, 1);
+
+insert into tb_peca (COD_Peca, descricao, preco, qtde_estoque, COD_Armazem)
+values ("telefone", 1000, 10, 1);
+
+insert into tb_peca (descricao, preco, qtde_estoque, COD_Armazem)
+values ("peca 3", 320, 3, 2);
+
+
+insert into tb_pedido (dt_pedido, COD_Cliente, COD_Vendedor)
+values ("2022-08-22", 1, 1);
+
+insert into tb_pedido (dt_pedido, COD_Cliente, COD_Vendedor)
+values ("2022-08-23 09:36", 2, 2);
+
+insert into tb_pedido (dt_pedido, COD_Cliente, COD_Vendedor)
+values ("2022-08-23 09:37", 1, 1);
+
+insert into tb_pedido (dt_pedido, COD_Cliente, COD_Vendedor)
+values ("2022-08-23 09:38", 3, 2);
+
+insert into tb_pedido (dt_pedido, COD_Cliente, COD_Vendedor)
+values ("2022-08-23 09:33", 3, 2);
+
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (1, 1, 2);
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (1, 2, 1);
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (2, 3, 3);
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (3, 1, 5);
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (3, 2, 2);
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (3, 3, 1);
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (4, 2, 3);
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (5, 3, 2);
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (6, 2, 1);
+
+insert into tb_item (COD_Pedido, COD_peca, qtde)
+values (6, 1, 1);
+
+
+-- SELECT/VIEW
+
+create or replace view nota as
+select
+	pd.COD_Pedido as "codigo do pedido",
+    pd.dt_pedido as data,
+    pd.COD_Cliente as "codigo do cliente",
+    c.nome as cliente, 
+    c.endereco,
+	v.COD_Vendedor as "codigo do vendedor", 
+    v.nome as vendedor,
+	pc.descricao as "descricao da peca",
+    pc.preco as "preco unitario",
+    i.qtde as quantidade, (i.qtde * pc.preco) as subtotal
+from tb_pedido pd, tb_cliente c, tb_vendedor v, tb_item i
+inner join tb_peca pc on i.COD_peca = pc.COD_peca
+where
+	c.COD_Cliente = pd.COD_Cliente
+    and v.COD_Vendedor = pd.COD_Vendedor
+    and i.COD_Pedido = pd.COD_Pedido
+order by i.COD_Item asc;
+
+select * from nota where "codigo do pedido" = 6;
+
+
+
+-- calcular comissao do vendedor em cima da venda por porcentagenm
+-- calcular fat_acumulado do cliente a cada compra
+-- a cada compra, diminuir a quantidade de pecas em estoque

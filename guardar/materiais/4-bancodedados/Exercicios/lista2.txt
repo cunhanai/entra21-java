@@ -1,0 +1,21 @@
+-- 1.a) Pesquise os itens que foram vendidos sem desconto. As colunas presentes no 
+-- resultado da consulta são: ID_NF, ID_ITEM, COD_PROD E VALOR_UNIT
+
+SELECT ID_NF, ID_ITEM, COD_PROD, VALOR_UNIT
+FROM tb_notafiscal
+WHERE DESCONTO is null;
+
+-- b) Pesquise os itens que foram vendidos com desconto. As colunas presentes no 
+-- resultado da consulta são: ID_NF, ID_ITEM, COD_PROD, VALOR_UNIT E O VALOR 
+-- VENDIDO. OBS: O valor vendido é igual ao VALOR_UNIT -
+-- (VALOR_UNIT*(DESCONTO/100)).
+
+SELECT ID_NF, ID_ITEM, COD_PROD, VALOR_UNIT, (VALOR_UNIT-(VALOR_UNIT*(DESCONTO/100))) AS VALOR_VENDIDO
+FROM tb_notafiscal
+WHERE DESCONTO IS NOT NULL;
+
+-- c) Altere o valor do desconto (para zero) de todos os registros onde este campo é nulo.
+
+update tb_notafiscal
+set DESCONTO = 0
+where DESCONTO is null;
