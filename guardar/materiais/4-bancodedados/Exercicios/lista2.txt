@@ -1,21 +1,32 @@
--- 1.a) Pesquise os itens que foram vendidos sem desconto. As colunas presentes no 
--- resultado da consulta são: ID_NF, ID_ITEM, COD_PROD E VALOR_UNIT
 
-SELECT ID_NF, ID_ITEM, COD_PROD, VALOR_UNIT
+
+
+
+
+-- j) Qual o valor médio dos descontos dados por produto.
+-- As colunas presentes no resultado da consulta são: COD_PROD, MEDIA.
+-- Agrupe o resultado da consulta por COD_PROD.
+
+SELECT COD_PROD, ROUND(AVG(DESCONTO), 2) AS MEDIA
 FROM tb_notafiscal
-WHERE DESCONTO is null;
+GROUP BY COD_PROD;
 
--- b) Pesquise os itens que foram vendidos com desconto. As colunas presentes no 
--- resultado da consulta são: ID_NF, ID_ITEM, COD_PROD, VALOR_UNIT E O VALOR 
--- VENDIDO. OBS: O valor vendido é igual ao VALOR_UNIT -
--- (VALOR_UNIT*(DESCONTO/100)).
+-- k) Qual o menor, maior e o valor médio dos descontos dados por produto.
+-- As colunas presentes no resultado da consulta são: COD_PROD, MENOR, MAIOR, MEDIA.
+-- Agrupe o resultado da consulta por COD_PROD.
 
-SELECT ID_NF, ID_ITEM, COD_PROD, VALOR_UNIT, (VALOR_UNIT-(VALOR_UNIT*(DESCONTO/100))) AS VALOR_VENDIDO
+SELECT COD_PROD, MIN(DESCONTO) AS MENOR, MAX(DESCONTO) AS MAIOR, ROUND(AVG(DESCONTO), 2) AS MEDIA
 FROM tb_notafiscal
-WHERE DESCONTO IS NOT NULL;
+GROUP BY COD_PROD;
 
--- c) Altere o valor do desconto (para zero) de todos os registros onde este campo é nulo.
+-- l) Quais as NF que possuem mais de 3 itens vendidos. As colunas presentes no resultado 
+-- da consulta são: ID_NF, QTD_ITENS. OBS:: NÃO ESTÁ RELACIONADO A QUANTIDADE 
+-- VENDIDA DO ITEM E SIM A QUANTIDADE DE ITENS POR NOTA FISCAL. Agrupe o 
+-- resultado da consulta por ID_NF.
 
-update tb_notafiscal
-set DESCONTO = 0
-where DESCONTO is null;
+SELECT ID_NF, SUM(QUANTIDADE) AS QTD_ITENS
+FROM tb_notafiscal
+GROUP BY ID_NF
+HAVING QTD_ITENS > 3;
+
+-- 10 MINUTOS PARA APRESENTAR, 5 PARA PERGUNTAS E RESPOSTAS E 5 PARA TROCA DE GRUPO
