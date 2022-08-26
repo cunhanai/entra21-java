@@ -1,0 +1,5 @@
+-- INSIRA OS VALORES DE HISTORICO PARA TODOS OS ALUNOS EM TODAS AS DISCIPLINAS
+
+-- ALUNO 1
+insert into tb_historico (MAT, COD_DISC, COD_TURMA, COD_PROF, frequência, nota)
+values (2015010101, 'BD', 1,);

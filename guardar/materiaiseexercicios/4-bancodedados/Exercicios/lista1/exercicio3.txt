@@ -152,14 +152,14 @@ values (6, 1, 1);
 
 create or replace view nota as
 select
-	pd.COD_Pedido as "codigo do pedido",
+    pd.COD_Pedido as "codigo do pedido",
     pd.dt_pedido as data,
     pd.COD_Cliente as "codigo do cliente",
     c.nome as cliente, 
     c.endereco,
-	v.COD_Vendedor as "codigo do vendedor", 
+    v.COD_Vendedor as "codigo do vendedor", 
     v.nome as vendedor,
-	pc.descricao as "descricao da peca",
+    pc.descricao as "descricao da peca",
     pc.preco as "preco unitario",
     i.qtde as quantidade, (i.qtde * pc.preco) as subtotal
 from tb_pedido pd, tb_cliente c, tb_vendedor v, tb_item i
