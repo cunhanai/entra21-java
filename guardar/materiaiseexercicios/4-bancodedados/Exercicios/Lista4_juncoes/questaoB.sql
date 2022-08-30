@@ -1,4 +1,5 @@
--- b) Listar os nomes dos clientes, seguido do código do seu pedido, ordenados por nome e posteriormente por codigo.
+-- b) Listar os nomes dos clientes, seguido do código do seu pedido, ordenados 
+-- por nome e posteriormente por codigo.
 
 select c.Nome as 'cliente', p.COD_Pedido
 from tb_cliente c
